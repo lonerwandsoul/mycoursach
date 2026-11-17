@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1248.52"
+   height="700.70099"
+   viewBox="0 0 330.33716 185.3938"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="блок-схема.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.71891835"
+     inkscape:cx="580.03805"
+     inkscape:cy="322.01153"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g2" />
+  <defs
+     id="defs1">
+    <rect
+       x="368.60931"
+       y="19.4737"
+       width="557.7824"
+       height="118.23318"
+       id="rect4" />
+    <rect
+       x="496.57934"
+       y="48.684249"
+       width="212.81972"
+       height="61.203056"
+       id="rect3" />
+  </defs>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2"
+       transform="translate(5.8884757,19.137546)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="26.866169" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="27.970259" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="133.59457"
+         y="40.851307"
+         id="text4"><tspan
+           sodipodi:role="line"
+           id="tspan4"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="133.59457"
+           y="40.851307">Главная страница</tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-5.888687,-19.137546)"
+         id="text1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.6667px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect4);display:inline;fill:#000000;fill-opacity:1" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:Calibri;-inkscape-font-specification:Calibri;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         x="39.378967"
+         y="1.840148"
+         id="text6"><tspan
+           sodipodi:role="line"
+           id="tspan6"
+           style="font-size:16.9333px;stroke-width:0.264583"
+           x="39.378967"
+           y="1.840148">Информационная структура сайта</tspan></text>
+    </g>
+    <g
+       id="g2-0"
+       transform="translate(-48.466726,148.52474)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-9"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-73"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="130.2823"
+         y="22.817844"
+         id="text4-7"><tspan
+           sodipodi:role="line"
+           id="tspan4-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="130.2823"
+           y="22.817844">Возможности  сайта</tspan></text>
+    </g>
+    <g
+       id="g2-5"
+       transform="translate(-118.22323,148.50088)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-75"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-41"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="133.59457"
+         y="22.817844"
+         id="text4-20"><tspan
+           sodipodi:role="line"
+           id="tspan4-01"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="133.59457"
+           y="22.817844">Быстрые действия</tspan></text>
+    </g>
+    <g
+       id="g2-7"
+       transform="translate(-127.06383,101.87251)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-88"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-2"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="145.00351"
+         y="22.449814"
+         id="text4-9"><tspan
+           sodipodi:role="line"
+           id="tspan4-1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="145.00351"
+           y="22.449814">Контакты</tspan></text>
+    </g>
+    <g
+       id="g2-4"
+       transform="translate(137.59522,102.16096)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-0"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-7"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="147.21167"
+         y="22.817844"
+         id="text4-63"><tspan
+           sodipodi:role="line"
+           id="tspan4-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="147.21167"
+           y="22.817844">Помощь</tspan></text>
+    </g>
+    <g
+       id="g2-8"
+       transform="translate(-89.069265,37.059587)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-7"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-4"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="136.53882"
+         y="22.817844"
+         id="text4-2"><tspan
+           sodipodi:role="line"
+           id="tspan4-7"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="136.53882"
+           y="22.817844">Поиск Вакансий</tspan></text>
+    </g>
+    <g
+       id="g2-9"
+       transform="translate(100.70879,37.057567)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-8"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-6"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="135.80275"
+         y="22.817844"
+         id="text4-5"><tspan
+           sodipodi:role="line"
+           id="tspan4-0"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="135.80275"
+           y="22.817844">Личный Кабинет</tspan></text>
+    </g>
+    <g
+       id="g2-9-6"
+       transform="translate(5.2378255,102.03765)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-8-1"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-6-3"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="135.80275"
+         y="22.817844"
+         id="text4-5-8"><tspan
+           sodipodi:role="line"
+           id="tspan4-0-9"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="135.80275"
+           y="22.817844">Создать резюме</tspan></text>
+    </g>
+    <g
+       id="g2-9-0"
+       transform="translate(-61.037413,102.03765)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-8-6"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-6-6"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.29261px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.262191"
+         x="130.73669"
+         y="22.151905"
+         id="text4-5-1"
+         transform="scale(0.99096291,1.0091195)"><tspan
+           sodipodi:role="line"
+           id="tspan4-0-8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.29261px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.262191"
+           x="130.73669"
+           y="22.151905">Избранные вакансии</tspan></text>
+    </g>
+    <g
+       id="g2-2"
+       transform="translate(71.765637,102.16302)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke-width:0.264583"
+         id="rect1-4"
+         width="63.301113"
+         height="24.657993"
+         x="128.44217"
+         y="8.8327131" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke-width:0.305503"
+         id="rect2-8"
+         width="61.092937"
+         height="22.449814"
+         x="129.54625"
+         y="9.9368029" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+         x="140.58713"
+         y="22.817844"
+         id="text4-6"><tspan
+           sodipodi:role="line"
+           id="tspan4-5"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+           x="140.58713"
+           y="22.817844">Мои отклики</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-2.1132955e-4,0)"
+       id="text2"
+       style="text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect3);display:inline;fill:#ffffff;fill-opacity:1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.065;stroke-dasharray:none;stroke-opacity:1"
+       d="M 134.33065,57.412637 H 101.94403"
+       id="path13" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.879395;stroke-dasharray:none;stroke-opacity:1"
+       d="M 166.95984,70.010501 V 92.092288"
+       id="path13-1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.826507;stroke-dasharray:none;stroke-opacity:1"
+       d="M 30.820821,91.985509 V 111.4911"
+       id="path13-1-1" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.826507;stroke-dasharray:none;stroke-opacity:1"
+       d="M 99.102625,91.699037 V 111.20462"
+       id="path13-1-1-9" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.857129;stroke-dasharray:none;stroke-opacity:1"
+       d="M 166.7902,90.640704 V 111.61841"
+       id="path13-1-1-5" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.826507;stroke-dasharray:none;stroke-opacity:1"
+       d="M 299.11569,91.434454 V 110.94004"
+       id="path13-1-1-2" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.065;stroke-dasharray:none;stroke-opacity:1"
+       d="M 229.94268,57.133466 H 197.55606"
+       id="path13-6" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.065;stroke-dasharray:none;stroke-opacity:1"
+       d="M 167.08529,92.007432 H 30.546257 298.83994"
+       id="path14" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.834268;stroke-dasharray:none;stroke-opacity:1"
+       d="M 232.62569,91.571722 V 111.44534"
+       id="path13-1-1-4" />
+  </g>
+</svg>

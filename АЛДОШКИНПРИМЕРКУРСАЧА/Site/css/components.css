@@ -1,0 +1,89 @@
+/* ===== ФОРМЫ ===== */
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-blue);
+    box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+}
+textarea.form-control { min-height: 120px; resize: vertical; }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+.checkbox-group input { margin-top: 0.25rem; }
+
+/* ===== КНОПКИ ===== */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--secondary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    text-align: center;
+}
+.btn:hover { background-color: #1e4a8a; }
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--secondary-blue);
+    color: var(--secondary-blue);
+}
+.btn-outline:hover { background-color: rgba(44, 90, 160, 0.1); }
+.btn-danger { background-color: var(--danger); }
+.btn-danger:hover { background-color: #c82333; }
+.btn-block { display: block; width: 100%; }
+
+/* ===== АВТОРИЗАЦИЯ ===== */
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.auth-container {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 3rem;
+    width: 100%;
+    max-width: 500px;
+}
+.auth-logo { text-align: center; margin-bottom: 2rem; }
+.auth-logo img { max-width: 150px; height: auto; }
+.auth-logo h1 { color: var(--primary-blue); font-size: 1.3rem; margin-top: 1rem; }
+.auth-container h2 { text-align: center; border: none; }
+.auth-links { margin-top: 1.5rem; text-align: center; font-size: 0.9rem; }
+.auth-links a { color: var(--secondary-blue); text-decoration: none; font-weight: 500; }
+.auth-links a:hover { text-decoration: underline; }
+.auth-links p { margin-top: 0.75rem; }
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--medium-gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.back-link:hover { color: var(--primary-blue); }
