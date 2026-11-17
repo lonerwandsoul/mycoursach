@@ -74,7 +74,7 @@ $dbStatus = [
         : (string) ($dbInfo['file'] ?? 'файл'),
     'note' => $dbInfo['engine'] === 'mysql'
         ? ('импорт дампа: ' . ((int) ($dbInfo['imported'] ?? 0) > 0 ? 'выполнен' : 'не требуется'))
-        : ('MySQL недоступен: ' . (string) ($dbInfo['error'] ?? '')),
+        : 'резервный режим: MySQL недоступен',
 ];
 
 $pageTitle = 'Данные и демо-режим';
