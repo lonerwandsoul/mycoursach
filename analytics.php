@@ -19,9 +19,8 @@ $deltaLoad = an_delta($kpi['load'], $previous['load'] ?? null);
 $labels = array_map(static fn ($row) => $row['label'], $monthly);
 $chart = an_line_chart($labels, [
     ['name' => 'Производительность, изделий', 'color' => '#2f6fed', 'values' => array_column($monthly, 'qty'), 'format' => 'an_num'],
-    ['name' => 'Прибыль, млн ₽', 'color' => '#12b76a', 'values' => array_map(static fn ($row) => $row['profit'] / 1000000, $monthly), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
-    ['name' => 'Брак, %', 'color' => '#f04438', 'values' => array_column($monthly, 'defect_rate'), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
-], 980, 320);
+    ['name' => 'Брак, %', 'color' => '#f04438', 'values' => array_column($monthly, 'defect_rate'), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' '), 'axis' => 'right'],
+], 980, 320, max(1.0, (float) max(array_column($monthly, 'qty'))), 'an_num');
 
 $forecast = an_forecast($monthly, 'revenue');
 $insights = an_insights($pdo, $monthly, $kpi + ['period' => $period], $previous);
@@ -111,7 +110,7 @@ require_once 'header.php';
         <div class="an-card">
             <div class="an-card-head">
                 <h2>Сводный график показателей</h2>
-                <span class="an-muted">производительность · прибыль · брак</span>
+                <span class="an-muted">производительность · брак</span>
             </div>
             <?= $chart ?>
         </div>

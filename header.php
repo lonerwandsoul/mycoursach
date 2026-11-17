@@ -16,8 +16,9 @@ if (!isset($productsCount)) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="custom.css">
     <style>
-    /* ============ УБИВАЕМ ВСЕ SVG ============ */
-    svg { display: none !important; }
+    /* ============ СКРЫВАЕМ ТОЛЬКО ИКОНКИ-КАРТИНКИ ============ */
+    /* SVG-графики аналитики должны отображаться: скрываем только иконки вёрстки. */
+    .info-icon svg, .service-icon svg, .metric-icon svg, .search-icon svg { display: none !important; }
     .info-icon, .service-icon, .metric-icon, .search-icon, .search-icon-btn {
         display: none !important;
     }

@@ -287,27 +287,52 @@ function an_sparkline(array $values, string $color = '#2f6fed', int $width = 120
 
 /* ------------------------------------------------------------------ графики */
 
-function an_line_chart(array $labels, array $series, int $width = 900, int $height = 300): string
+function an_line_chart(array $labels, array $series, int $width = 900, int $height = 300, ?float $yMax = null, $yFormat = null): string
 {
-    $padding = ['left' => 56, 'right' => 18, 'top' => 18, 'bottom' => 34];
+    $padding = ['left' => 62, 'right' => 64, 'top' => 22, 'bottom' => 36];
     $innerWidth = $width - $padding['left'] - $padding['right'];
     $innerHeight = $height - $padding['top'] - $padding['bottom'];
     $labels = array_values($labels);
     $count = max(1, count($labels) - 1);
 
+    // Шкала левой оси строится по первому ряду (у остальных свои единицы).
+    $firstValues = $series ? array_map('floatval', array_values($series[0]['values'])) : [];
+    $firstMin = $firstValues ? min($firstValues) : 0;
+    $firstMax = $firstValues ? max($firstValues) : 1;
+    if ($firstMax - $firstMin < 0.0001) {
+        $firstMax = $firstMin + 1;
+    }
+    $firstFormat = $yFormat ?? ($series[0]['format'] ?? 'an_num');
+    if ($yMax !== null && $yMax > 0) {
+        // Единая шкала (например, 0…максимум прибыли) — нужна, когда ряды
+        // выражены в одних единицах: выручка, себестоимость, прибыль.
+        $firstMin = 0;
+        $firstMax = $yMax;
+    }
+
     $svg = '<svg class="an-chart" viewBox="0 0 ' . $width . ' ' . $height . '" role="img" aria-label="График показателей">';
     for ($i = 0; $i <= 4; $i++) {
         $y = $padding['top'] + $innerHeight * $i / 4;
         $svg .= '<line x1="' . $padding['left'] . '" y1="' . $y . '" x2="' . ($width - $padding['right']) . '" y2="' . $y . '" stroke="#e6e9f2" stroke-width="1"/>';
+        $tick = $firstMax - ($firstMax - $firstMin) * $i / 4;
+        $svg .= '<text x="' . ($padding['left'] - 10) . '" y="' . ($y + 4) . '" text-anchor="end" font-size="12" fill="#7b8194">'
+            . an_e(is_callable($firstFormat) ? call_user_func($firstFormat, $tick) : an_num($tick)) . '</text>';
     }
     foreach ($labels as $index => $label) {
         $x = $padding['left'] + $innerWidth * ($count ? $index / $count : 0);
-        $svg .= '<text x="' . $x . '" y="' . ($height - 12) . '" text-anchor="middle" font-size="11" fill="#7b8194">' . an_e($label) . '</text>';
+        $svg .= '<text x="' . $x . '" y="' . ($height - 12) . '" text-anchor="middle" font-size="12.5" fill="#7b8194">' . an_e($label) . '</text>';
     }
     foreach ($series as $line) {
         $values = array_map('floatval', $line['values']);
-        $min = min($values);
-        $max = max($values);
+        // Ряды «axis => right» (%) рисуются на своей шкале 0…%max.
+        $rightAxis = ($line['axis'] ?? '') === 'right';
+        if ($rightAxis) {
+            $min = 0.0;
+            $max = max(1.0, (float) max($values) * 1.2);
+        } else {
+            $min = $yMax !== null && $yMax > 0 ? 0.0 : min($values);
+            $max = $yMax !== null && $yMax > 0 ? (float) $yMax : max($values);
+        }
         if ($max - $min < 0.0001) {
             $max = $min + 1;
         }
@@ -321,6 +346,15 @@ function an_line_chart(array $labels, array $series, int $width = 900, int $heig
         $svg .= '<polyline points="' . $polyline . '" fill="none" stroke="' . an_e($line['color']) . '" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
         foreach ($points as [$x, $y]) {
             $svg .= '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="3.2" fill="#fff" stroke="' . an_e($line['color']) . '" stroke-width="2"/>';
+        }
+        // Подпись последнего значения — чтобы каждый ряд читался отдельно.
+        if ($points) {
+            $last = end($values);
+            $lastPoint = end($points);
+            $format = $line['format'] ?? 'an_num';
+            $label = is_callable($format) ? call_user_func($format, $last) : an_num($last);
+            $svg .= '<text x="' . round($lastPoint[0] + 8, 1) . '" y="' . round($lastPoint[1] - 9, 1)
+                . '" font-size="12.5" font-weight="700" fill="' . an_e($line['color']) . '">' . an_e($label) . '</text>';
         }
     }
     $svg .= '</svg>';
@@ -340,7 +374,7 @@ function an_bar_chart(array $labels, array $values, string $color = '#2f6fed', $
 {
     $width = 900;
     $height = 260;
-    $padding = ['left' => 56, 'right' => 18, 'top' => 18, 'bottom' => 42];
+    $padding = ['left' => 64, 'right' => 22, 'top' => 22, 'bottom' => 46];
     $innerWidth = $width - $padding['left'] - $padding['right'];
     $innerHeight = $height - $padding['top'] - $padding['bottom'];
     $labels = array_values($labels);
@@ -365,7 +399,7 @@ function an_bar_chart(array $labels, array $values, string $color = '#2f6fed', $
         $x = $padding['left'] + $step * $index + ($step - $barWidth) / 2;
         $y = $padding['top'] + $innerHeight - $barHeight;
         $svg .= '<rect x="' . round($x, 1) . '" y="' . round($y, 1) . '" width="' . round($barWidth, 1) . '" height="' . round($barHeight, 1) . '" rx="6" fill="' . an_e($color) . '" opacity="0.9"/>';
-        $svg .= '<text x="' . round($x + $barWidth / 2, 1) . '" y="' . ($height - 16) . '" text-anchor="middle" font-size="11" fill="#7b8194">' . an_e($labels[$index] ?? '') . '</text>';
+        $svg .= '<text x="' . round($x + $barWidth / 2, 1) . '" y="' . ($height - 16) . '" text-anchor="middle" font-size="12.5" fill="#7b8194">' . an_e($labels[$index] ?? '') . '</text>';
     }
     $svg .= '</svg>';
     return '<div class="an-chart-wrap">' . $svg . '</div>';

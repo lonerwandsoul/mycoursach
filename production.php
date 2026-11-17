@@ -68,7 +68,7 @@ $chartLabels = array_map(static fn ($row) => $row['label'], $monthly);
 $chart = an_line_chart($chartLabels, [
     ['name' => 'Выпуск, изделий', 'color' => '#2f6fed', 'values' => array_column($monthly, 'qty'), 'format' => 'an_num'],
     ['name' => 'Брак, изделий', 'color' => '#f04438', 'values' => array_column($monthly, 'defects'), 'format' => 'an_num'],
-], 980, 300);
+], 980, 300, max(1.0, (float) max(array_column($monthly, 'qty'))), 'an_num');
 $bars = an_bar_chart(array_column($byWorkshop, 'workshop'), array_column($byWorkshop, 'qty'), '#2f6fed', 'an_num');
 
 require_once 'header.php';

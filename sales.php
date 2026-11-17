@@ -44,7 +44,7 @@ $labels = array_map(static fn ($row) => $row['label'], $monthly);
 $ordersChart = an_line_chart($labels, [
     ['name' => 'Заказы, шт.', 'color' => '#2f6fed', 'values' => array_column($monthly, 'orders'), 'format' => 'an_num'],
     ['name' => 'Средний чек, тыс. ₽', 'color' => '#12b76a', 'values' => array_map(static fn ($row) => $row['orders'] > 0 ? $row['revenue'] / $row['orders'] / 1000 : 0, $monthly), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
-], 980, 300);
+], 980, 300, max(1.0, (float) max(array_column($monthly, 'orders')) * 1.15), 'an_num');
 $channelBars = an_bar_chart(array_column($byChannel, 'channel'), array_column($byChannel, 'revenue'), '#2f6fed', static fn ($v) => an_money($v, true));
 
 $pageTitle = 'Продажи и маркетинг';

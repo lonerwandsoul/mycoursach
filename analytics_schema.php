@@ -79,9 +79,9 @@ function an_init_schema(PDO $pdo): void
             created_at DATETIME NULL DEFAULT CURRENT_TIMESTAMP
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-    // Роль пользователя (manager / admin), добавляется к существующей таблице.
+    // Роль пользователя (manager / admin) — добавляется к уже существующей таблице.
     $columns = $sqlite
-        ? $pdo->query("PRAGMA table_info(users)")->fetchAll()
+        ? $pdo->query('PRAGMA table_info(users)')->fetchAll()
         : $pdo->query('SHOW COLUMNS FROM users')->fetchAll();
     $hasRole = false;
     foreach ($columns as $column) {
@@ -93,11 +93,15 @@ function an_init_schema(PDO $pdo): void
         $pdo->exec("ALTER TABLE users ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'manager'");
     }
 
+    // Если таблица пользователей пустая (база создана «с нуля»), добавляем
+    // администратора. На действующей базе существующие учётные записи не трогаем.
     $users = (int) $pdo->query('SELECT COUNT(*) FROM users')->fetchColumn();
     if ($users === 0) {
-        $insertUser = $pdo->prepare('INSERT INTO users (login, password, full_name, phone, email, created_at) VALUES (?, ?, ?, ?, ?, ?)');
-        $insertUser->execute(['manager', password_hash('manager123', PASSWORD_DEFAULT), 'Менеджер Фаворит', '', 'manager@favorit.local', date('Y-m-d H:i:s')]);
-        $pdo->exec("UPDATE users SET role = 'admin' WHERE login = 'manager'");
+        $insertUser = $pdo->prepare('INSERT INTO users (login, password, full_name, phone, email, role, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $insertUser->execute([
+            'manager', password_hash('manager123', PASSWORD_DEFAULT), 'Менеджер Фаворит',
+            '', 'manager@favorit.local', 'admin', date('Y-m-d H:i:s'),
+        ]);
     }
 
     // Справочники и операционные данные, питающие аналитику.
@@ -125,6 +129,7 @@ function an_init_schema(PDO $pdo): void
         $pdo->exec($statement);
     }
 
+    // Демонстрационные данные создаются только в пустой базе.
     $count = (int) $pdo->query('SELECT COUNT(*) FROM an_production')->fetchColumn();
     if ($count === 0) {
         an_seed($pdo);
@@ -249,21 +254,23 @@ function an_seed(PDO $pdo): void
         }
     }
 
-    $staff = [
-        ['Иванов И. И.', 'Производство', 'Начальник цеха', 92000, '2019-03-12'],
-        ['Петрова А. С.', 'Производство', 'Мастер участка', 71000, '2021-07-01'],
-        ['Сидоров П. А.', 'Производство', 'Оператор ЧПУ', 64000, '2022-02-14'],
-        ['Кузнецов Д. В.', 'Производство', 'Сборщик мебели', 58000, '2023-05-22'],
-        ['Смирнова Е. А.', 'Финансы', 'Главный бухгалтер', 98000, '2018-11-05'],
-        ['Волкова М. И.', 'Финансы', 'Экономист', 72000, '2022-09-19'],
-        ['Морозов А. Ю.', 'Продажи', 'Руководитель отдела', 85000, '2020-01-20'],
-        ['Фёдорова Н. В.', 'Продажи', 'Менеджер по продажам', 56000, '2023-04-03'],
-        ['Соколов Р. Н.', 'Маркетинг', 'Маркетолог', 69000, '2022-06-15'],
-        ['Лебедева О. К.', 'Кадры', 'HR-специалист', 61000, '2021-10-11'],
-    ];
-    $insertStaff = $pdo->prepare('INSERT INTO an_staff (full_name, department, position, salary, hired_at, status) VALUES (?, ?, ?, ?, ?, ?)');
-    foreach ($staff as $person) {
-        $insertStaff->execute(array_merge($person, ['active']));
+    if ((int) $pdo->query('SELECT COUNT(*) FROM an_staff')->fetchColumn() === 0) {
+        $staff = [
+            ['Иванов И. И.', 'Производство', 'Начальник цеха', 92000, '2019-03-12'],
+            ['Петрова А. С.', 'Производство', 'Мастер участка', 71000, '2021-07-01'],
+            ['Сидоров П. А.', 'Производство', 'Оператор ЧПУ', 64000, '2022-02-14'],
+            ['Кузнецов Д. В.', 'Производство', 'Сборщик мебели', 58000, '2023-05-22'],
+            ['Смирнова Е. А.', 'Финансы', 'Главный бухгалтер', 98000, '2018-11-05'],
+            ['Волкова М. И.', 'Финансы', 'Экономист', 72000, '2022-09-19'],
+            ['Морозов А. Ю.', 'Продажи', 'Руководитель отдела', 85000, '2020-01-20'],
+            ['Фёдорова Н. В.', 'Продажи', 'Менеджер по продажам', 56000, '2023-04-03'],
+            ['Соколов Р. Н.', 'Маркетинг', 'Маркетолог', 69000, '2022-06-15'],
+            ['Лебедева О. К.', 'Кадры', 'HR-специалист', 61000, '2021-10-11'],
+        ];
+        $insertStaff = $pdo->prepare('INSERT INTO an_staff (full_name, department, position, salary, hired_at, status) VALUES (?, ?, ?, ?, ?, ?)');
+        foreach ($staff as $person) {
+            $insertStaff->execute(array_merge($person, ['active']));
+        }
     }
 }
 

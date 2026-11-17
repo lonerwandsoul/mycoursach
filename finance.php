@@ -10,11 +10,12 @@ $monthly = an_monthly($pdo);
 $kpi = an_kpi($pdo, $period);
 $labels = array_map(static fn ($row) => $row['label'], $monthly);
 
+$money = array_map(static fn ($row) => max($row['revenue'], $row['cost']) / 1000000, $monthly);
 $chart = an_line_chart($labels, [
     ['name' => 'Выручка, млн ₽', 'color' => '#12b76a', 'values' => array_map(static fn ($row) => $row['revenue'] / 1000000, $monthly), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
     ['name' => 'Себестоимость, млн ₽', 'color' => '#f79009', 'values' => array_map(static fn ($row) => $row['cost'] / 1000000, $monthly), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
     ['name' => 'Прибыль, млн ₽', 'color' => '#2f6fed', 'values' => array_map(static fn ($row) => $row['profit'] / 1000000, $monthly), 'format' => static fn ($v) => number_format((float) $v, 1, ',', ' ')],
-], 980, 320);
+], 980, 320, max(1.0, (float) ceil(max($money))), static fn ($v) => number_format((float) $v, 1, ',', ' '));
 
 $byChannel = $pdo->prepare('SELECT channel, SUM(revenue) AS revenue, SUM(orders) AS orders FROM an_sales WHERE period = ? GROUP BY channel ORDER BY revenue DESC');
 $byChannel->execute([$period]);

@@ -66,6 +66,17 @@ $users = $pdo->query('SELECT id, login, full_name, role, created_at FROM users O
 $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
 $auditLast = $pdo->query('SELECT actor, action, created_at FROM an_audit ORDER BY id DESC LIMIT 5')->fetchAll();
 
+// Состояние подключения к базе (показывается в блоке «База данных»).
+$dbStatus = [
+    'engine' => $dbInfo['engine'] === 'mysql' ? 'MySQL' : 'SQLite (резерв)',
+    'where' => $dbInfo['engine'] === 'mysql'
+        ? $dbInfo['database'] . ' @ ' . $dbInfo['host']
+        : (string) ($dbInfo['file'] ?? 'файл'),
+    'note' => $dbInfo['engine'] === 'mysql'
+        ? ('импорт дампа: ' . ((int) ($dbInfo['imported'] ?? 0) > 0 ? 'выполнен' : 'не требуется'))
+        : ('MySQL недоступен: ' . (string) ($dbInfo['error'] ?? '')),
+];
+
 $pageTitle = 'Данные и демо-режим';
 $activePage = 'admin';
 require_once 'header.php';
@@ -94,7 +105,7 @@ require_once 'header.php';
     <div class="an-kpi-grid">
         <div class="an-kpi"><span class="an-kpi-title">Таблиц в контуре</span><b class="an-kpi-value"><?= count($tables) ?></b><span class="an-kpi-note">аналитические</span></div>
         <div class="an-kpi"><span class="an-kpi-title">Записей всего</span><b class="an-kpi-value"><?= an_num(array_sum($counts)) ?></b><span class="an-kpi-note">во всех таблицах</span></div>
-        <div class="an-kpi"><span class="an-kpi-title">База данных</span><b class="an-kpi-value small"><?= an_e(strtoupper($driver)) ?></b><span class="an-kpi-note">PHP <?= PHP_VERSION ?></span></div>
+        <div class="an-kpi"><span class="an-kpi-title">База данных</span><b class="an-kpi-value small"><?= an_e($dbStatus['engine']) ?></b><span class="an-kpi-note"><?= an_e($dbStatus['where']) ?></span></div>
         <div class="an-kpi"><span class="an-kpi-title">Пользователей</span><b class="an-kpi-value"><?= an_num(count($users)) ?></b><span class="an-kpi-note">сотрудники и админ</span></div>
     </div>
 
@@ -141,6 +152,20 @@ require_once 'header.php';
                 <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
+
+        <div class="an-card">
+            <div class="an-card-head"><h2>База данных</h2></div>
+            <p class="an-note">
+                Движок: <b><?= an_e($dbStatus['engine']) ?></b><br>
+                <?= $dbInfo['engine'] === 'mysql' ? 'База' : 'Файл' ?>:
+                <b><?= an_e($dbStatus['where']) ?></b><br>
+                <?= an_e($dbStatus['note']) ?>
+            </p>
+            <p class="an-note">
+                Полный дамп базы — файл <code>database/favorit_db.sql</code>.
+                Импорт в phpMyAdmin или установка страницей <a class="an-link" href="install.php">install.php</a>.
+            </p>
         </div>
 
         <div class="an-card">

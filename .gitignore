@@ -1,0 +1,11 @@
+# Служебные файлы и локальные данные
+data/
+*.sqlite
+*.sqlite-journal
+php_errors.log
+.osp/
+~$*
+
+# Временные файлы сборки документов
+build/
+*.tmp
