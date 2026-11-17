@@ -1,0 +1,53 @@
+/* ============ УБИРАЕМ ВСЕ ОГРОМНЫЕ SVG-ИКОНКИ ============ */
+svg { display: none !important; }
+
+.info-icon,
+.service-icon,
+.metric-icon,
+.search-icon {
+    display: none !important;
+}
+
+/* ============ АЛЕРТЫ ============ */
+.alert { padding: 15px 20px; border-radius: 8px; margin-bottom: 20px; font-size: 15px; border: 2px solid; }
+.alert-success { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+.alert-error   { background: #ffebee; border-color: #f44336; color: #b71c1c; }
+
+/* ============ ФОРМЫ ============ */
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group input, .form-group select, .form-group textarea { font-family: inherit; width: 100%; }
+.required-star { color: #DC143C; }
+
+/* ============ ПОИСК (без иконки) ============ */
+.search-container { position: relative; }
+.search-input { padding-right: 15px !important; }
+.search-icon-btn { display: none !important; }
+
+/* ============ ОТЗЫВЫ ============ */
+.review-card-public { background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; }
+.review-stars { color: #f5b301; font-size: 18px; letter-spacing: 2px; }
+.review-author-line { font-weight: bold; color: #2C2C2C; margin-top: 10px; }
+.review-date-line { font-size: 13px; color: #7A7A7A; }
+.review-product-tag { display: inline-block; background: #F5F5F5; color: #4A4A4A; padding: 3px 10px; border-radius: 10px; font-size: 12px; margin-bottom: 10px; }
+
+/* ============ ТАБЛИЦЫ ============ */
+.admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+.admin-table th, .admin-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+.admin-table th { background: #2C2C2C; color: #fff; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.admin-table tr:hover { background: #fafafa; }
+
+.status-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+.status-new    { background: #fff3cd; color: #856404; }
+.status-work   { background: #d1ecf1; color: #0c5460; }
+.status-ok     { background: #d4edda; color: #155724; }
+.status-cancel { background: #f8d7da; color: #721c24; }
+
+/* ============ СОЦ-ИКОНКИ В ФУТЕРЕ ============ */
+.social-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+.social-icon { width: 40px !important; height: 40px !important; display: inline-flex !important; align-items: center; justify-content: center; background: #4A4A4A; border-radius: 8px; text-decoration: none; }
+.social-icon img { width: 20px !important; height: 20px !important; max-width: 20px !important; max-height: 20px !important; object-fit: contain; }
+
+/* ============ ПОИСК (страница результатов) ============ */
+.search-page-item { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.search-page-item h3 { color: #2C2C2C; margin-bottom: 6px; }
+.search-page-item .type-tag { display: inline-block; background: #E5E5E5; padding: 2px 8px; border-radius: 8px; font-size: 12px; color: #4A4A4A; margin-bottom: 8px; }
