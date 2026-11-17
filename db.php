@@ -261,12 +261,18 @@ if ($pdo === null) {
 // Таблицы и демо-данные создаются автоматически (идемпотентно).
 an_init_schema($pdo);
 
+// Путь к файлу SQLite показываем относительно каталога проекта — так понятнее.
+$dbFilePublic = $dbFile;
+if ($dbFile !== null && str_starts_with($dbFile, __DIR__ . DIRECTORY_SEPARATOR)) {
+    $dbFilePublic = substr($dbFile, strlen(__DIR__) + 1);
+}
+
 $dbInfo = [
     'engine' => $pdo->getAttribute(PDO::ATTR_DRIVER_NAME),
     'imported' => $dbImported,
     'database' => db_config()['database'],
     'host' => db_config()['host'] . ':' . db_config()['port'],
-    'file' => $dbFile,
+    'file' => $dbFilePublic,
     'error' => $dbError,
 ];
 
